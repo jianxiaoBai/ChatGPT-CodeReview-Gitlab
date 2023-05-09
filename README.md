@@ -1,10 +1,10 @@
-## 安装
+## Installation
 
 ```bash
 $ pnpm i --frozen-lockfile
 ```
 
-## 运行
+## Running
 
 ```bash
 # development
@@ -17,19 +17,18 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## 替换 ChatGPT token
+## Replace ChatGPT Token
 
-将此项目中 `YOU_ARE_CHATGPT_TOKEN` 替换为自己的 ChatGPT token
+Replace **YOU_ARE_CHATGPT_TOKEN** in this project with your own ChatGPT token.
 
-## 配置项目中的 gitlab
+## Configure GitLab in the project
 
-1. 在 gitlab 项目中生成 **`Access Token`** 需要勾选 **读写权限**
-2. 在 gitlab 项目中配置 webhook, 勾选 **`Merge request event`**
-    - 这个 webhook 地址需要三个参数：
-      - `token`: 就是第一步生成的 Access Token
-      - `language`: 为 ZH 和 EN，如何设置为 EN，chatGPT 则会以英文进行评论
-      - `projectId`: 在 Gitlab project -> general 中可以看到
+Generate an `Access Token` in the GitLab project and check the **"read and write"** permissions.
+Configure the webhook in the GitLab project, and select the **Merge request event**.
+- The webhook URL requires three parameters:
+    - token: The Access Token generated in step 1.
+    - language: Choose between ZH and EN. If set to EN, ChatGPT will comment in English.
+    - projectId: Can be found in GitLab project -> general.
+The webhook URL looks like: https://www.asxf.com/gitlab-review/webhook?projectId=234&token=sadfgfd23v62g&language=EN
 
-webhook url 类似: https://www.asxf.com/gitlab-review/webhook?projectId=234&token=sadfgfd23v62g&language=ZH
-
-当把服务部署好之后, 就可以在对应的 Gitlab 项目进行 `Merge Request` 时, ChatGPT 就可以对代码进行评论.
+After deploying the service, ChatGPT can comment on code when a `Merge Request` is created in the corresponding GitLab project.
